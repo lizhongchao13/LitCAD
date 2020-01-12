@@ -55,6 +55,37 @@ namespace LitCAD
             }
         }
 
+
+        /// <summary>
+        /// Cross window
+        /// https://yal.cc/rectangle-circle-intersection-test/
+        /// </summary>
+        internal static bool BoundingCross(Bounding bounding, Ellipse ellipse)
+        {
+            LitMath.Vector2 nearestPntOnBound = new LitMath.Vector2(
+                Math.Max(bounding.left, Math.Min(ellipse.center.x, bounding.right)),
+                Math.Max(bounding.bottom, Math.Min(ellipse.center.y, bounding.top)));
+
+            if (LitMath.Vector2.Distance(nearestPntOnBound, ellipse.center) <= ellipse.radiusX
+                || LitMath.Vector2.Distance(nearestPntOnBound, ellipse.center) <= ellipse.radiusY)
+            {
+                double bdLeft = bounding.left;
+                double bdRight = bounding.right;
+                double bdTop = bounding.top;
+                double bdBottom = bounding.bottom;
+
+                return LitMath.Vector2.Distance(new LitMath.Vector2(bdLeft, bdTop), ellipse.center) >= ellipse.radiusX
+                    || LitMath.Vector2.Distance(new LitMath.Vector2(bdLeft, bdBottom), ellipse.center) >= ellipse.radiusY
+                    || LitMath.Vector2.Distance(new LitMath.Vector2(bdRight, bdTop), ellipse.center) >= ellipse.radiusY
+                    || LitMath.Vector2.Distance(new LitMath.Vector2(bdRight, bdBottom), ellipse.center) >= ellipse.radiusY;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
         /// <summary>
         /// 值是否在范围内
         /// </summary>

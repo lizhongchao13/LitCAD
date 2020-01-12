@@ -219,6 +219,14 @@ namespace LitCAD.Windows
             ToolStripMenuItem menuDraw = new ToolStripMenuItem();
             menuDraw.Text = "绘图";
 
+            // 点
+            ToolStripMenuItem point = _toolStripMgr.NewMenuItem(
+                "draw_point",
+                "点",
+                Resource1.draw_line.ToBitmap(),
+                this.OnDrawPoint);
+            menuDraw.DropDownItems.Add(point);
+
             // 直线
             ToolStripMenuItem lines = _toolStripMgr.NewMenuItem(
                 "draw_lines",
@@ -274,6 +282,14 @@ namespace LitCAD.Windows
                 Resource1.draw_circle_cr.ToBitmap(),
                 this.OnDrawCircle);
             menuDraw.DropDownItems.Add(circle);
+
+            // 椭圆
+            ToolStripMenuItem ellipse = _toolStripMgr.NewMenuItem(
+                "draw_ellipse",
+                "椭圆",
+                Resource1.draw_line.ToBitmap(),
+                this.OnDrawEllipse);
+            menuDraw.DropDownItems.Add(ellipse);
 
             // 圆弧
             ToolStripMenuItem arc = _toolStripMgr.NewMenuItem(
@@ -378,9 +394,17 @@ namespace LitCAD.Windows
         {
             ToolStrip drawToolstrip = _toolStripMgr.GetToolStrip("Draw");
 
+            // 点
+            ToolStripButton point = _toolStripMgr.NewToolStripButton("draw_point");
+            drawToolstrip.Items.Add(point);
+
             // 直线
             ToolStripButton lines = _toolStripMgr.NewToolStripButton("draw_lines");
             drawToolstrip.Items.Add(lines);
+
+            // 射线
+            ToolStripButton ray = _toolStripMgr.NewToolStripButton("draw_ray");
+            drawToolstrip.Items.Add(ray);
 
             // 构造线
             ToolStripButton xline = _toolStripMgr.NewToolStripButton("draw_xline");
@@ -401,6 +425,10 @@ namespace LitCAD.Windows
             // 圆
             ToolStripButton circle = _toolStripMgr.NewToolStripButton("draw_circle");
             drawToolstrip.Items.Add(circle);
+
+            // 椭圆
+            ToolStripButton ellipse = _toolStripMgr.NewToolStripButton("draw_ellipse");
+            drawToolstrip.Items.Add(ellipse);
 
             // 圆弧
             ToolStripButton arc = _toolStripMgr.NewToolStripButton("draw_arc");
@@ -712,6 +740,12 @@ namespace LitCAD.Windows
         {
         }
 
+        private void OnDrawPoint(object sender, EventArgs e)
+        {
+            Commands.Draw.PointCmd cmd = new Commands.Draw.PointCmd();
+            _presenter.OnCommand(cmd);
+        }
+
         private void OnDrawLines(object sender, EventArgs e)
         {
             Commands.Draw.LinesChainCmd cmd = new Commands.Draw.LinesChainCmd();
@@ -751,6 +785,12 @@ namespace LitCAD.Windows
         private void OnDrawCircle(object sender, EventArgs e)
         {
             Commands.Draw.CircleCmd cmd = new Commands.Draw.CircleCmd();
+            _presenter.OnCommand(cmd);
+        }
+
+        private void OnDrawEllipse(object sender, EventArgs e)
+        {
+            Commands.Draw.EllipseCmd cmd = new Commands.Draw.EllipseCmd();
             _presenter.OnCommand(cmd);
         }
 

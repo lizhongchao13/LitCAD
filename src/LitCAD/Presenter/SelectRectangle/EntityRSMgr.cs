@@ -37,13 +37,15 @@ namespace LitCAD
 
         private void Initialize()
         {
+            RegisterEntityRS(typeof(XPoint), new XPointRS());
             RegisterEntityRS(typeof(Line), new LineRS());
             RegisterEntityRS(typeof(Xline), new XlineRS());
             RegisterEntityRS(typeof(Ray), new RayRS());
             RegisterEntityRS(typeof(Polyline), new PolylineRS());
             RegisterEntityRS(typeof(Circle), new CircleRS());
             RegisterEntityRS(typeof(Arc), new ArcRS());
-            RegisterEntityRS(typeof(Text), new TextRS());
+            RegisterEntityRS(typeof(Text), new TextRS());          
+            RegisterEntityRS(typeof(Ellipse), new EllipseRS());
         }
 
         private void RegisterEntityRS(Type type, EntityRS entityRS)

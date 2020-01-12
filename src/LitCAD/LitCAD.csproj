@@ -95,6 +95,9 @@
     <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>LitCAD.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="LitMath, Version=0.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -111,6 +114,8 @@
     <Compile Include="ApplicationServices\CommonColors.cs" />
     <Compile Include="Commands\CommandNames.cs" />
     <Compile Include="Commands\CommandsFactory.cs" />
+    <Compile Include="Commands\Draw\EllipseCmd.cs" />
+    <Compile Include="Commands\Draw\PointCmd.cs" />
     <Compile Include="Commands\Draw\PolygonCmd.cs" />
     <Compile Include="Commands\Draw\RayCmd.cs" />
     <Compile Include="Commands\Draw\RectangleCmd.cs" />
@@ -154,12 +159,16 @@
     <Compile Include="Presenter\DynamicInputer\DynInputResult\DynInputResultT.cs" />
     <Compile Include="Presenter\DynamicInputer\DynInputResult\DynInputStatus.cs" />
     <Compile Include="Presenter\DynamicInputer\DynInputCtrl\DynInputPoint.cs" />
+    <Compile Include="Presenter\PickupBox\EllipseHitter.cs" />
     <Compile Include="Presenter\PickupBox\RayHitter.cs" />
     <Compile Include="Presenter\PickupBox\TextHitter.cs" />
     <Compile Include="Presenter\PickupBox\XlineHitter.cs" />
+    <Compile Include="Presenter\PickupBox\XPointHitter.cs" />
+    <Compile Include="Presenter\SelectRectangle\EllipseRS.cs" />
     <Compile Include="Presenter\SelectRectangle\RayRS.cs" />
     <Compile Include="Presenter\SelectRectangle\TextRS.cs" />
     <Compile Include="Presenter\SelectRectangle\XlineRS.cs" />
+    <Compile Include="Presenter\SelectRectangle\XPointRS.cs" />
     <Compile Include="Windows\DynamicInputTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -365,6 +374,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="res\draw\draw_xline.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\draw\draw_ellipse_cenax.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\draw\draw_point.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LitCAD.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

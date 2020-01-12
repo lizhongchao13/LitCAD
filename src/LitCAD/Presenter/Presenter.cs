@@ -62,6 +62,12 @@ namespace LitCAD
             _presenter = presenter;
         }
 
+        public void DrawPoint(LitMath.Vector2 endPoint)
+        {
+            LitMath.Vector2 endInCanvas = _presenter.ModelToCanvas(endPoint);
+            graphics.FillEllipse(_pen.Brush, (float)endInCanvas.x, (float)endInCanvas.y, 5, 5);
+        }
+
         public void DrawLine(LitMath.Vector2 startPoint, LitMath.Vector2 endPoint)
         {
             LitMath.Vector2 startInCanvas = _presenter.ModelToCanvas(startPoint);
@@ -176,6 +182,16 @@ namespace LitCAD
             graphics.DrawEllipse(_pen,
                 (float)(centerInCanvas.x - radiusInCanvas), (float)(centerInCanvas.y - radiusInCanvas),
                 (float)radiusInCanvas * 2, (float)radiusInCanvas * 2);
+        }
+
+        public void DrawEllipse(LitMath.Vector2 center, double radiusX, double radiusY)
+        {
+            LitMath.Vector2 centerInCanvas = _presenter.ModelToCanvas(center);
+            double radiusXInCanvas = _presenter.ModelToCanvas(radiusX);
+            double radiusYInCanvas = _presenter.ModelToCanvas(radiusY);
+            graphics.DrawEllipse(_pen,
+                (float)(centerInCanvas.x - radiusXInCanvas), (float)(centerInCanvas.y - radiusYInCanvas),
+                (float)radiusXInCanvas * 2, (float)radiusYInCanvas * 2);
         }
 
         /// <summary>
@@ -341,6 +357,11 @@ namespace LitCAD
             _presenter = presenter;
         }
 
+        public void DrawPoint(LitMath.Vector2 endPoint)
+        {
+            graphics.FillEllipse(_pen.Brush, (float)endPoint.x, (float)endPoint.y, 5, 5);
+        }
+
         public void DrawLine(LitMath.Vector2 startPoint, LitMath.Vector2 endPoint)
         {
             graphics.DrawLine(_pen,
@@ -447,6 +468,13 @@ namespace LitCAD
             graphics.DrawEllipse(_pen,
                 (float)(center.x - radius), (float)(center.y - radius),
                 (float)radius * 2, (float)radius * 2);
+        }
+
+        public void DrawEllipse(LitMath.Vector2 center, double radiusX, double radiusY)
+        {
+            graphics.DrawEllipse(_pen,
+                (float)(center.x - radiusX), (float)(center.y - radiusY),
+                (float)radiusX * 2, (float)radiusY * 2);
         }
 
         /// <summary>

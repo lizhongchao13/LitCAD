@@ -93,7 +93,6 @@ namespace LitCAD.UI
             _presenter = presenter;
             //RenewBitmap();
 
-            //
             RegisterEntityHitter(typeof(Line), new LineHitter());
             RegisterEntityHitter(typeof(Xline), new XlineHitter());
             RegisterEntityHitter(typeof(Ray), new RayHitter());
@@ -101,6 +100,9 @@ namespace LitCAD.UI
             RegisterEntityHitter(typeof(Circle), new CircleHitter());
             RegisterEntityHitter(typeof(Arc), new ArcHitter());
             RegisterEntityHitter(typeof(Text), new TextHitter());
+
+            RegisterEntityHitter(typeof(XPoint), new XPointHitter());
+            RegisterEntityHitter(typeof(Ellipse), new EllipseHitter());
         }
 
         private void RegisterEntityHitter(Type entType, EntityHitter entHitter)

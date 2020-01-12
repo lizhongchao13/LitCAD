@@ -17,6 +17,8 @@ namespace LitCAD
 
     public interface IGraphicsDraw
     {
+        void DrawPoint(LitMath.Vector2 endPoint);
+
         void DrawLine(LitMath.Vector2 startPoint, LitMath.Vector2 endPoint);
 
         void DrawXLine(LitMath.Vector2 basePoint, LitMath.Vector2 direction);
@@ -24,6 +26,8 @@ namespace LitCAD
         void DrawRay(LitMath.Vector2 basePoint, LitMath.Vector2 direction);
 
         void DrawCircle(LitMath.Vector2 center, double radius);
+
+        void DrawEllipse(LitMath.Vector2 center, double radiusX, double radiusY);
 
         /// <summary>
         /// 绘制圆弧

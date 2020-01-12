@@ -113,6 +113,7 @@
     <Compile Include="Entity\Arc.cs" />
     <Compile Include="Entity\BlockReference.cs" />
     <Compile Include="Entity\Circle.cs" />
+    <Compile Include="Entity\Ellipse.cs" />
     <Compile Include="Entity\Entity.cs" />
     <Compile Include="Entity\Line.cs" />
     <Compile Include="Entity\Polyline.cs" />
@@ -120,11 +121,13 @@
     <Compile Include="Entity\Text.cs" />
     <Compile Include="Entity\TextAlignment.cs" />
     <Compile Include="Entity\Xline.cs" />
+    <Compile Include="Entity\XPoint.cs" />
     <Compile Include="Filer\XmlFiler.cs" />
     <Compile Include="Filer\XmlFilerImpl.cs" />
     <Compile Include="GripPoint.cs" />
     <Compile Include="GripPointType.cs" />
     <Compile Include="IDatabaseObserver.cs" />
+    <Compile Include="LineType.cs" />
     <Compile Include="LineWeight.cs" />
     <Compile Include="MathUtils.cs" />
     <Compile Include="ObjectId.cs" />
